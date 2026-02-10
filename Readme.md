@@ -1,4 +1,4 @@
 # Catatanku
 ## Api Catatan with django
 ### isi dari md dll
-### ini instalasi
+### ini instalasi yang diperlukan
