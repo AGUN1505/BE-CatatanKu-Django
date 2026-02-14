@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
@@ -31,7 +30,7 @@ class NoteDetail(APIView):
         except Note.DoesNotExist:
             raise Http404
 
-    def get(self, request, pk):
+    def get(self, pk):
         note = self.get_object(pk)
         serializer = NoteSerializer(note)
         return Response(serializer.data)
@@ -44,7 +43,7 @@ class NoteDetail(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, pk):
+    def delete(self, pk):
         note = self.get_object(pk)
         note.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
